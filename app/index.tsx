@@ -10,6 +10,7 @@ export default function Index() {
       }}
     >
       <Text>HabitApp</Text>
+      <Text>Alışkanlık Takip Uygulaması</Text>
     </View>
   );
 }
