@@ -1,19 +1,52 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import {
+  StyleSheet,
+  Switch,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from "react-native";
 
 export default function Index() {
   const [isEnabled, setIsEnabled] = React.useState(false);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>HabitApp</Text>
-      <Text>Alışkanlık Takip Uygulaması</Text>
-      <TouchableOpacity>Giriş Yap</TouchableOpacity>
+    <View style={styles.container}>
+      {/*text1*/}
+      <View
+        style={{
+          backgroundColor: "white",
+          borderRadius: 20,
+        }}
+      >
+        <Text style={styles.matruskaText}>HabitApp</Text>
+      </View>
+
+      <View style={styles.kullanıcıGirişi}>
+        <View style={styles.kullanıcıGirişiIcon}>
+          <Ionicons name="person" color="purple" size={50} />
+        </View>
+        <View style={styles.kullanıcıGirişiText}>
+          <TextInput placeholder="E-mail" />
+        </View>
+        <View style={styles.kullanıcıGirişiText}>
+          <TextInput placeholder="Şifre" />
+        </View>
+        <View style={styles.kullanıcıGirişiSwitch}>
+          <Switch
+            value={isEnabled} // Switch’in mevcut durumu (true/false)
+            onValueChange={setIsEnabled} // Tıklanınca değeri değiştirir
+            trackColor={{ false: "#afadadff", true: "#5fedd1ff" }} // Arka plan rengi
+            thumbColor="white" // Küçük dairenin rengi
+          />
+          <Text style={{color:"white"}}>Beni hatırla</Text>
+        </View>
+        <TouchableOpacity>
+          <Text style={styles.kullanıcıGirişiButton}>Giriş</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
